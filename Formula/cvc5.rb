@@ -3,20 +3,20 @@ class Cvc5 < Formula
 
   desc "Efficient open-source automatic theorem prover for SMT problems"
   homepage "https://cvc5.github.io/"
-  url "https://github.com/cvc5/cvc5.git", tag: "cvc5-1.0.5"
+  url "https://github.com/cvc5/cvc5.git", tag: "cvc5-1.0.8"
   head "https://github.com/cvc5/cvc5.git", branch: "main"
 
-  option "with-glp", "Permit GLP dependencies, if available"
   option "with-java-bindings", "Build Java bindings based on new C++ API"
   option "with-python-bindings", "Build python bindings based on new C++ API"
 
   depends_on "cmake"
-  depends_on "flex"
+  depends_on "gmp"
+  depends_on :java if build.with? "java-bindings"
   depends_on "python@3.10"
 
-  resource "toml" do
-    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
-    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "pyparsing" do
@@ -36,7 +36,6 @@ class Cvc5 < Formula
       "-DCMAKE_FIND_FRAMEWORK=NEVER",
     ]
 
-    command_line << "--glp" if build.with? "glp"
     command_line << "--python-bindings" if build.with? "python-bindings"
     command_line << "--java-bindings" if build.with? "java-bindings"
 
