@@ -31,7 +31,7 @@ class Cvc5 < Formula
       "./configure.sh",
       "--auto-download",
       "--static",
-      "--prefix=#{prefix}"
+      "--prefix=#{prefix}",
     ]
 
     command_line << "--java-bindings" if build.with? "java-bindings"
