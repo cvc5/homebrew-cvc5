@@ -9,9 +9,9 @@ class Cvc5 < Formula
   option "with-java-bindings", "Build Java bindings based on new C++ API"
 
   depends_on "cmake" => :build
+  depends_on "python@3" => :build
   depends_on "gmp"
   depends_on :java if build.with? "java-bindings"
-  depends_on "python@3" => :build
 
   resource "tomli" do
     url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
