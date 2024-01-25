@@ -3,16 +3,15 @@ class Cvc5 < Formula
 
   desc "Efficient open-source automatic theorem prover for SMT problems"
   homepage "https://cvc5.github.io/"
-  url "https://github.com/cvc5/cvc5.git", tag: "cvc5-1.0.8"
+  url "https://github.com/cvc5/cvc5.git", tag: "cvc5-1.1.1"
   head "https://github.com/cvc5/cvc5.git", branch: "main"
 
   option "with-java-bindings", "Build Java bindings based on new C++ API"
-  option "with-python-bindings", "Build python bindings based on new C++ API"
 
-  depends_on "cmake"
+  depends_on "cmake" => :build
   depends_on "gmp"
   depends_on :java if build.with? "java-bindings"
-  depends_on "python@3.10"
+  depends_on "python@3" => :build
 
   resource "tomli" do
     url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
@@ -25,7 +24,7 @@ class Cvc5 < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(buildpath/"venv", "python3")
     venv.pip_install resources
 
     command_line = [
@@ -33,10 +32,9 @@ class Cvc5 < Formula
       "--auto-download",
       "--static",
       "--prefix=#{prefix}",
-      "-DCMAKE_FIND_FRAMEWORK=NEVER",
+      "-DPython_EXECUTABLE=#{buildpath}/venv/bin/python",
     ]
 
-    command_line << "--python-bindings" if build.with? "python-bindings"
     command_line << "--java-bindings" if build.with? "java-bindings"
 
     command = Shellwords.join(command_line)
