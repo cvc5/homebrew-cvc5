@@ -27,12 +27,13 @@ class Cvc5 < Formula
     venv = virtualenv_create(buildpath/"venv", "python3")
     venv.pip_install resources
 
+    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages("python3")
+
     command_line = [
       "./configure.sh",
       "--auto-download",
       "--static",
       "--prefix=#{prefix}",
-      "-DPython_EXECUTABLE=#{buildpath}/venv/bin/python",
     ]
 
     command_line << "--java-bindings" if build.with? "java-bindings"
