@@ -3,7 +3,7 @@ class Cvc5 < Formula
 
   desc "Efficient open-source automatic theorem prover for SMT problems"
   homepage "https://cvc5.github.io/"
-  url "https://github.com/cvc5/cvc5.git", tag: "cvc5-1.1.1"
+  url "https://github.com/cvc5/cvc5.git", tag: "cvc5-1.1.2"
   head "https://github.com/cvc5/cvc5.git", branch: "main"
 
   option "with-java-bindings", "Build Java bindings based on new C++ API"
