@@ -5,7 +5,7 @@ cask "cvc5" do
   sha256 arm:   "18e0bd283d44f720f72bf80175169ef63e985628b7ba1502aaf812f57f981461",
          intel: "bdde9557bbb9b812af270c3f418836c285957b3ed81385b87428d2d595ffbf47"
 
-  url "https://github.com/cvc5/cvc5/releases/download/cvc5-#{version}/cvc5-macOS-#{arch}-static.zip"
+  url "https://github.com/cvc5/cvc5/releases/download/cvc5-#{version}/cvc5-macOS-#{arch}-static.zip",
       verified: "github.com/cvc5/cvc5/releases/download/"
   name "cvc5"
   desc "Automatic theorem prover for Satisfiability Modulo Theories (SMT) problems"
