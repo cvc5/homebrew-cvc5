@@ -42,7 +42,7 @@ class Cvc5 < Formula
     system "bash", "-c", "export CMAKE_PREFIX_PATH=#{libexec}:$CMAKE_PREFIX_PATH; #{command}"
 
     chdir "build" do
-      system "make", "install"
+      system "bash", "-c", "export CMAKE_POLICY_VERSION_MINIMUM=3.5; make install"
     end
   end
 
