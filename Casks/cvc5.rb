@@ -11,12 +11,10 @@ cask "cvc5" do
   end
 
   on_linux do
-    arch arm: "arm64", intel: "x86_64"
-    url "https://github.com/cvc5/cvc5/releases/download/cvc5-#{version}/cvc5-Linux-#{arch}-static.zip",
+    url "https://github.com/cvc5/cvc5/releases/download/cvc5-#{version}/cvc5-Linux-x86_64-static.zip",
         verified: "github.com/cvc5/cvc5/releases/download/"
-    sha256 arm:   "fe2b661834a82fd8830f7a757c340f0e20041fa41e19b038fa02ace0eaf1c6f2",
-           intel: "1a1cda20d2df4938fa4944a69f33ddc9172e319ece0eed0aa09c4d7abede3ed1"
-    binary "cvc5-Linux-#{arch}-static/bin/cvc5"
+    sha256 "1a1cda20d2df4938fa4944a69f33ddc9172e319ece0eed0aa09c4d7abede3ed1"
+    binary "cvc5-Linux-x86_64-static/bin/cvc5"
   end
 
   name "cvc5"
