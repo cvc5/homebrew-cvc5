@@ -2,9 +2,9 @@
 
 ## How do I install cvc5 as a cask?
 
-`brew install --cask cvc5/cvc5/cvc5`
+`brew install --cask --no-quarantine cvc5/cvc5/cvc5`
 
-Or `brew tap cvc5/cvc5` and then `brew install --cask cvc5`.
+Or `brew tap cvc5/cvc5` and then `brew install --cask --no-quarantine cvc5`.
 
 ## Documentation
 
