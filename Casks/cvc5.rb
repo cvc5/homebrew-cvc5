@@ -31,4 +31,10 @@ cask "cvc5" do
   caveats do
     license "https://github.com/cvc5/cvc5/blob/main/COPYING"
   end
+
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-r", "-d", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/bin/cvc5"],
+                   sudo: false
+  end
 end
