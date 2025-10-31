@@ -28,6 +28,12 @@ cask "cvc5" do
     regex(/^cvc5-(\d+(?:\.\d+)+)$/i)
   end
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-r", "-d", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/bin/cvc5"],
+                   sudo: false
+  end
+
   caveats do
     license "https://github.com/cvc5/cvc5/blob/main/COPYING"
   end
