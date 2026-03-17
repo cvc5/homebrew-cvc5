@@ -1,19 +1,19 @@
 cask "cvc5" do
-  version "1.3.2"
+  version "1.3.3"
 
   on_macos do
     arch arm: "arm64", intel: "x86_64"
     url "https://github.com/cvc5/cvc5/releases/download/cvc5-#{version}/cvc5-macOS-#{arch}-static.zip",
         verified: "github.com/cvc5/cvc5/releases/download/"
-    sha256 arm:   "172b6ff70662184725aedf64b0189a870cc7562aca1bad9cd0ec92f682edb3af",
-           intel: "b4ab528a63592da89c81eb10e35167f1e6051fd2ad8969f4e6ec54e0708fe774"
+    sha256 arm:   "0ad2df5de1b35c0fda6afa9ca9f7b542a615c2137e1ec678a45deccdda1871b2",
+           intel: "45e4156e9285162ae7e43504fa451ca2f618994f0d83fdd661d945f208d75f14"
     binary "cvc5-macOS-#{arch}-static/bin/cvc5"
   end
 
   on_linux do
     url "https://github.com/cvc5/cvc5/releases/download/cvc5-#{version}/cvc5-Linux-x86_64-static.zip",
         verified: "github.com/cvc5/cvc5/releases/download/"
-    sha256 "1060daaf507edef9d0a68e399cfc0e9038150bccb9e2d34d081d50a7687544d2"
+    sha256 "413f56f01f3a7374105c654581e67249eb66d4e430e748b17962d595cd4861b6"
     binary "cvc5-Linux-x86_64-static/bin/cvc5"
   end
 
