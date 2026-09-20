@@ -28,10 +28,9 @@ cask "cvc5" do
     regex(/^cvc5-(\d+(?:\.\d+)+)$/i)
   end
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-r", "-d", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/bin/cvc5"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-d", "com.apple.quarantine", "{{HOMEBREW_PREFIX}}/bin/cvc5"]
   end
 
   caveats do
