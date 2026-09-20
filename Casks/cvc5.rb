@@ -22,10 +22,9 @@ cask "cvc5" do
 
   binary "cvc5-#{os}-#{arch}-static/bin/cvc5"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-r", "-d", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/bin/cvc5"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-d", "com.apple.quarantine", "{{HOMEBREW_PREFIX}}/bin/cvc5"]
   end
 
   caveats do
